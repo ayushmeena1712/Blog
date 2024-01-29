@@ -2,32 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+*{
+  margin: 0;
+  padding: 0;
+  block-size: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+:root{
+  --bg: #0d0c22;
+  --text: white;
+  --bgSoft: #2d2b42;
+  --textSoft: #e5e5e5;
+  --bth: #3673fd;
+}
+
+body{
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+a{
+  text-decoration: none;
+  color: var(--text);
+}
+
+.container{
+  width: 1536;
+  margin: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 1536px) {
+  .container{
+    width: 1366px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (max-width: 1366px) {
+  .container{
+    width: 1280px;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media (max-width: 1280px) {
+  .container{
+    width: 1024px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container{
+    width: 768px;
   }
 }
