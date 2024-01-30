@@ -20,6 +20,5 @@ return (
       </Link>
 );
 };
-  
 
 export default NavLinks;
