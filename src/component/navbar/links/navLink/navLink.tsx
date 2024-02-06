@@ -4,14 +4,12 @@ import Link from "next/link"
 import styles from "./navLinks.module.css"
 import { usePathname } from "next/navigation";
 
-interface NavLinkProps {
-      item: {
+interface NavLinkProps { 
             title: string;
-            path: string;
-      };
+            path: string; 
 }
   
-const NavLinks = ({ item }: NavLinkProps) => {
+const NavLinks = (item: NavLinkProps) => {
 const pathName = usePathname();
 
 return (

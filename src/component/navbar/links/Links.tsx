@@ -37,21 +37,21 @@ const Links = () => {
         <div className={styles.container}>
             <div className={styles.links}>
                 {links.map((link) => (
-                    <NavLinks item={link} />
+                    <NavLinks title={link.title} path={link.path} />
                 ))}
                 {session ? (
                     <>
-                        {isAdmin && <NavLinks item={{ title: "Admin", path: '/admin' }} />}
+                        {isAdmin && <NavLinks  title='admin' path='/admin'  />}
                         <button className={styles.logout}>Logout</button>
                     </>
                 ) : (
-                    <NavLinks item={{ title: "Login", path: "/login" }} />
+                    <NavLinks title='admin' path='/login' />
                 )}
             </div>    
             <Image src={'/menu.png'} alt='' className={styles.menuButton} width={30} height={30} onClick={(prev) => !prev} />
             { open && <div className={styles.mobileLinks}>
                 {links.map((link) => (
-                    <NavLinks item={link} />
+                    <NavLinks title={link.title} path={link.path} />
                 ))}
             </div> }
         </div>
