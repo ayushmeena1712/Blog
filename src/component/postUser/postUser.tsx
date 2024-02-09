@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getUser } from "../lib/data";
 import styles from "./postUser.module.css";
 
@@ -24,8 +25,11 @@ const PostUser = async ({userid}: {userid: string})=>{
       const user = await getUser(userid);
       return(
             <div className={styles.container}>
-                  <span className={styles.title}>Author</span>
-                  <span className={styles.username}>{user.username}</span>
+                  <Image height={50} width={50} src={user.img ? user.img :'/noavatar.png'} className={styles.avatar} alt='' />
+                  <div className={styles.text}>
+                        <span className={styles.title}>Author</span>
+                        <span className={styles.username}>{user.username}</span>
+                  </div>
             </ div>
       )
 }

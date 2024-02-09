@@ -1,6 +1,7 @@
 import { getPosts } from "@/component/lib/data";
 import styles from "./blog.module.css";
 import PostCard from "@/component/postCard/PostCard";
+import { Metadata } from "next";
 
 export interface posts {
   userid: string;
@@ -12,20 +13,26 @@ export interface posts {
 
 
 
-// const getData = async () => {
-//   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-//   if (!res.ok) {
-//     throw new Error("something went wrong");
-//   }
-//   else {
-//     console.log("working well")
-//   }
-//   return res.json();
-// }
+const getData = async () => {
+  const res = await fetch('http://localhost:3000/api/blog');
+  if (!res.ok) {
+    throw new Error("something went wrong");
+  }
+  else {
+    console.log("working well")
+  }
+  return res.json();
+}
+
+export const metadata: Metadata = {
+  title:"Blog Section",
+  description: "Blog Page",
+};
 
 const BlogPage = async () => {
   console.log("blog page");
-  const posts = await getPosts(); 
+  // const posts = await getPosts(); 
+  const posts = await getData();
   return (
     <div className={styles.container}>
       {posts.map((p: posts) => (
