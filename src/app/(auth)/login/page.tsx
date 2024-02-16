@@ -1,19 +1,13 @@
-import { signIn } from "@/component/lib/auth";
+import GithubLogin from "@/component/utils/githubLogin/GithubLogin";
+import styles from "./login.module.css"
 
- 
-
-const LoginPage = () => { 
-  const handleGithubLogin = async ()=>{
-    "use server"
-    await signIn("github");
-  };
+const LoginPage = () => {
+  console.log("inside the login page");
   return (
-    <div>
-      <form action={handleGithubLogin}>
-        <button type="submit">Login With Github</button>
-      </form>
+    <div className={styles.container}>
+      <GithubLogin />
     </div>
-  )
+  );
 }
 
 export default LoginPage;

@@ -1,8 +1,10 @@
 import mongoose, { Types, mongo } from "mongoose";
 
 export interface iUser{
+      save(): unknown;
       username: String;
       email: String;
+      password: String;
       img?: String;
       isAdmin: Boolean;
 }
@@ -19,11 +21,13 @@ const user = new mongoose.Schema<iUser>(
       },
       email:{
             type: String,
-            required: true,
-            min:6
       },
       img:{
             type: String,
+      },
+      password:{
+            type: String,
+            required: true,
       },
       isAdmin:{
             type: Boolean,
